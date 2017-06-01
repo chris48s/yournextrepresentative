@@ -24,6 +24,82 @@
   <li><a href="{% url 'atom-results-basic' %}">{% trans "Basic Atom feed" %}</a></li>
 </ul>
 
+<p>Here is an example of the former - this is the contents of
+the feed with additional extra elements with a single
+result:</p>
+
+<pre class="feed-example">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-gb"&gt;
+  &lt;title&gt;Election results from Democracy Club Candidates (with extra data)&lt;/title&gt;
+  &lt;link href="https://candidates.democracyclub.org.uk/" rel="alternate"/&gt;
+  &lt;link href="https://candidates.democracyclub.org.uk/results/all.atom" rel="self"/&gt;
+  &lt;id&gt;https://candidates.democracyclub.org.uk/&lt;/id&gt;
+  &lt;updated&gt;2017-06-09T10:36:38.110335+00:00&lt;/updated&gt;
+  &lt;entry&gt;
+    &lt;title&gt;David Cameron (Conservative and Unionist Party) won in Witney&lt;/title&gt;
+    &lt;link href="https://candidates.democracyclub.org.uk/#32346" rel="alternate"/&gt;
+    &lt;published&gt;2017-06-09T10:36:38.110335+00:00&lt;/published&gt;
+    &lt;updated&gt;2017-06-09T10:36:38.110335+00:00&lt;/updated&gt;
+    &lt;author&gt;
+      &lt;name&gt;joe&lt;/name&gt;
+    &lt;/author&gt;
+    &lt;id&gt;https://candidates.democracyclub.org.uk/#32346&lt;/id&gt;
+    &lt;summary type="html"&gt;A Democracy Club Candidates volunteer recorded at 2017-06-09 10:36:38 that David Cameron (Conservative and Unionist Party) won the ballot in Witney, quoting the source 'BBC news'.&lt;/summary&gt;
+    &lt;election_slug&gt;parl.2017-06-08&lt;/election_slug&gt;
+    &lt;election_name&gt;2017 General Election&lt;/election_name&gt;
+    &lt;election_date&gt;2017-06-08&lt;/election_date&gt;
+    &lt;post_id&gt;65622&lt;/post_id&gt;
+    &lt;winner_person_id&gt;566&lt;/winner_person_id&gt;
+    &lt;winner_person_name&gt;David Cameron&lt;/winner_person_name&gt;
+    &lt;winner_party_id&gt;party:52&lt;/winner_party_id&gt;
+    &lt;winner_party_name&gt;Conservative and Unionist Party&lt;/winner_party_name&gt;
+    &lt;user_id&gt;3&lt;/user_id&gt;
+    &lt;post_name&gt;Witney&lt;/post_name&gt;
+    &lt;information_source&gt;BBC news&lt;/information_source&gt;
+    &lt;image_url&gt;https://candidates.democracyclub.org.uk/media/images/5517d858249b917507bee4f8.png&lt;/image_url&gt;
+  &lt;/entry&gt;
+&lt;/feed&gt;
+</pre>
+
+<p>The corresponding basic Atom feed would look like:</p>
+
+<pre class="feed-example">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-gb"&gt;
+  &lt;title&gt;Election results from Democracy Club Candidates (with extra data)&lt;/title&gt;
+  &lt;link href="https://candidates.democracyclub.org.uk/" rel="alternate"/&gt;
+  &lt;link href="https://candidates.democracyclub.org.uk/results/all.atom" rel="self"/&gt;
+  &lt;id&gt;https://candidates.democracyclub.org.uk/&lt;/id&gt;
+  &lt;updated&gt;2017-06-09T10:36:38.110335+00:00&lt;/updated&gt;
+  &lt;entry&gt;
+    &lt;title&gt;David Cameron (Conservative and Unionist Party) won in Witney&lt;/title&gt;
+    &lt;link href="https://candidates.democracyclub.org.uk/#32346" rel="alternate"/&gt;
+    &lt;published&gt;2017-06-09T10:36:38.110335+00:00&lt;/published&gt;
+    &lt;updated&gt;2017-06-09T10:36:38.110335+00:00&lt;/updated&gt;
+    &lt;author&gt;
+      &lt;name&gt;joe&lt;/name&gt;
+    &lt;/author&gt;
+    &lt;id&gt;https://candidates.democracyclub.org.uk/#32346&lt;/id&gt;
+    &lt;summary type="html"&gt;A Democracy Club Candidates volunteer recorded at 2017-06-09 10:36:38 that David Cameron (Conservative and Unionist Party) won the ballot in Witney, quoting the source 'BBC news'.&lt;/summary&gt;
+  &lt;/entry&gt;
+&lt;/feed&gt;
+</pre>
+
+<p>
+  If you're using this feed, please be aware that it's possible
+  that a volunteer will record the wrong winner in error. In
+  that case, when it's corrected there will be a new entry in
+  the field for the same constituency.
+</p>
+
+<p>
+  This feed contains results from any election, so if you just
+  want to get results for the 2017 General Election, say, you
+  should filter
+  for <tt>&lt;election_slug&gt;parl.2017-06-08&lt;/election_slug&gt;</tt>.
+</p>
+
 <h2>{% trans "CSV/Excel downloads of election results" %}</h2>
 
   <h3>{% trans "All Elected Candidates" %}</h3>
