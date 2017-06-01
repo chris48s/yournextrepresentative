@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+from datetime import datetime, timedelta
+
 from django.contrib.sites.models import Site
 from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Atom1Feed
@@ -19,7 +21,8 @@ class BasicResultEventsFeed(Feed):
     description = _("A basic feed of election results")
 
     def items(self):
-        return ResultEvent.objects.filter(created__gte="2017-05-04") \
+        date_limit = datetime.now() - timedelta(days=14)
+        return ResultEvent.objects.filter(created__gte=date_limit) \
             .select_related('user') \
             .select_related('election') \
             .select_related('post__extra') \
